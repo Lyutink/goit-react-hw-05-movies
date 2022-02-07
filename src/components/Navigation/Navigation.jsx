@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
-
+import { Nav } from "./Navigation.styled";
 
 const Navigation = () => (
-    <nav>
+    <Nav>
         <NavLink
             exact
             to="/"
@@ -13,7 +13,7 @@ const Navigation = () => (
             to="/movies"
             activeStyle={{composes: "link", color: "#2196f3"}}
         >Movies</NavLink>
-    </nav>
+    </Nav>
 );
 
 export default Navigation;
