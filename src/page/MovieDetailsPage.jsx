@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import {Route } from "react-router-dom";
 import { NavLink, useRouteMatch } from "react-router-dom";
 //import { getMovieDetails } from "services/moviesAPI";
-import * as moviesAPI from "../services/moviesAPI"
+import * as moviesAPI from "services/moviesAPI"
     
 
 import CardMovie from "components/CardMovie/CardMovie";

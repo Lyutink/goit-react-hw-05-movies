@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 //import getPopularFilms from '../services/MoviesAPI'
-import * as moviesAPI from "../services/moviesAPI";
+//import * as moviesAPI from "../services/moviesAPI";
+import { getPopularFilms } from "services/moviesAPI";
 
 export default function HomePage() {
    const [trendingMovies, setTrendingMovies] = useState([]);
@@ -12,7 +13,8 @@ export default function HomePage() {
          console.log("TrendingMovies", trendingMovies);
          return;
       }
-         moviesAPI.getPopularFilms().then(results => {
+         //moviesAPI.getPopularFilms().then(results => {
+            getPopularFilms().then(results => {
             console.log("results", results);
             setTrendingMovies([...results]);
             console.log("TrendingMovies", trendingMovies);
