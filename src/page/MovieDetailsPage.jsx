@@ -10,7 +10,7 @@ import Cast from "components/Cast";
 import Reviews from "components/Reviews";
 
 export default function MoviesDetailsPage() {
-      const { url } = useRouteMatch();
+      const { url} = useRouteMatch();
     const { movieId } = useParams();
     const [movieDetails, setMovieDetails] = useState(null);
     
@@ -19,27 +19,26 @@ export default function MoviesDetailsPage() {
         moviesAPI.getMovieDetails(movieId).then(results => {
             console.log("results", results);
             setMovieDetails( results );
-            console.log("movieDetails", movieDetails);
         })
     }, [movieId]);
 
 
 console.log("movieDetails", movieDetails);
     return (
-        <>
+        <> 
             <button> Go back</button>
             {movieDetails && (
-                <>
+            
                     <CardMovie movieDetails={movieDetails}/>
-                </>
+             
             )}
 
+            <ul>
+                <li><NavLink to={`${url}/cast`}>Cast</NavLink></li>
+                <li><NavLink to={`${url}/reviews`}>Reviews</NavLink></li>
+            </ul>
 
-<ul>
-            <li><NavLink to={`${url}/cast`}>Cast</NavLink></li>
-            <li><NavLink to={`${url}/reviews`}>Reviews</NavLink></li>
-</ul>
-            <Route path="/movies/:movieId/cast">
+            <Route path={`/movies/:movieId/cast`}>
                 <Cast></Cast>
             </Route>
 
