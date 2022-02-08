@@ -38,7 +38,7 @@ console.log("movieDetails", movieDetails);
                 <li><NavLink to={`${url}/reviews`}>Reviews</NavLink></li>
             </ul>
 
-            <Route path={`/movies/:movieId/cast`}>
+            <Route path="/movies/:movieId/cast">
                 <Cast></Cast>
             </Route>
 

@@ -1,19 +1,19 @@
 import { NavLink } from "react-router-dom";
-import { Nav } from "./Navigation.styled";
+import {NavLinkStyled } from "./Navigation.styled";
 
 const Navigation = () => (
-    <Nav>
-        <NavLink
+    <nav>
+        <NavLinkStyled
             exact
             to="/"
             activeStyle={{composes: "link", color: "#2196f3"}}
-        >Home</NavLink>
-        <NavLink
+        >Home</NavLinkStyled>
+        <NavLinkStyled
             exact
             to="/movies"
             activeStyle={{composes: "link", color: "#2196f3"}}
-        >Movies</NavLink>
-    </Nav>
+        >Movies</NavLinkStyled>
+    </nav>
 );
 
 export default Navigation;
