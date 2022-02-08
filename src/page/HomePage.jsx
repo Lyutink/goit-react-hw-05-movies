@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 //import getPopularFilms from '../services/MoviesAPI'
 //import * as moviesAPI from "../services/moviesAPI";
-import { getPopularFilms } from "../services/moviesAPI";
+import { getPopularFilms } from "services/moviesAPI";
 
 export default function HomePage() {
    const location = useLocation();

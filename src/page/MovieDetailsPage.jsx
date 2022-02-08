@@ -4,7 +4,7 @@ import {Route } from "react-router-dom";
 import { NavLink, useRouteMatch } from "react-router-dom";
 //import { getMovieDetails } from "services/moviesAPI";
 //import * as moviesAPI from "services/moviesAPI"
-import { getMovieDetails } from "../services/moviesAPI";
+import { getMovieDetails } from "services/moviesAPI";
     
 import Button from "components/Button/Button";
 import CardMovie from "components/CardMovie/CardMovie";
