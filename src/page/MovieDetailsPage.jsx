@@ -3,7 +3,8 @@ import { useParams, useLocation, useHistory } from "react-router-dom";
 import {Route } from "react-router-dom";
 import { NavLink, useRouteMatch } from "react-router-dom";
 //import { getMovieDetails } from "services/moviesAPI";
-import * as moviesAPI from "services/moviesAPI"
+//import * as moviesAPI from "services/moviesAPI"
+import { getMovieDetails } from "services/moviesAPI";
     
 import Button from "components/Button/Button";
 import CardMovie from "components/CardMovie/CardMovie";
@@ -19,7 +20,7 @@ export default function MoviesDetailsPage() {
     
     useEffect(() => {
         
-        moviesAPI.getMovieDetails(movieId).then(results => {
+        getMovieDetails(movieId).then(results => {
             console.log("results", results);
             setMovieDetails( results );
         })

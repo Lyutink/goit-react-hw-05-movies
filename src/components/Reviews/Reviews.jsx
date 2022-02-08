@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import * as moviesAPI from '../../services/moviesAPI'
+//import * as moviesAPI from '../../services/moviesAPI'
+import { getReviews } from "services/moviesAPI";
 
 export default function Reviews() {
     const { movieId } = useParams();
@@ -9,7 +10,7 @@ export default function Reviews() {
 
     useEffect(() => {
         
-        moviesAPI.getReviews(movieId).then(results => {
+        getReviews(movieId).then(results => {
             console.log("results", results);
             setReviews([...results.results]);
             
