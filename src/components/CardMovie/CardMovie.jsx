@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 
 export default function CardMovie({ movieDetails }) {
     return (
@@ -16,3 +17,13 @@ export default function CardMovie({ movieDetails }) {
                 </>
     )
 }
+
+CardMovie.propTypes = {
+    movieDetails: PropTypes.shape({
+        poster_path: PropTypes.string,
+        original_title: PropTypes.string,
+        overview: PropTypes.string,
+        genres: PropTypes.array,
+    })
+};
+
