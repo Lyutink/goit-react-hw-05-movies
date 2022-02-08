@@ -1,24 +1,21 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import * as moviesAPI from '../../services/moviesAPI'
+import { getMovieCast } from "services/moviesAPI";
 
 export default function Cast() {
     const { movieId } = useParams();
     const [actors, setActors] = useState([]);
     
-        useEffect(() => {
-        
-        moviesAPI.getMovieCast(movieId).then(results => {
-            console.log("results", results);
+    useEffect(() => {
+        getMovieCast(movieId).then(results => {
             setActors([...results.cast] );
-            
         })
         }, [movieId]);
     
-    return (
-        <>
-            {actors && (
+return (
+    <>
+        {actors && (
             <ul>
                 {actors.map((actor) => 
                     <li key={actor.cast_id}>
@@ -30,7 +27,7 @@ export default function Cast() {
                 </li>
                 )}
                 </ul>
-            )}
-        </>
+        )}
+    </>
     );
 }
