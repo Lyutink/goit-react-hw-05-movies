@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {Route } from "react-router-dom/cjs/react-router-dom.min";
+import {Route } from "react-router-dom";
 import { NavLink, useRouteMatch } from "react-router-dom";
 //import { getMovieDetails } from "services/moviesAPI";
-import * as moviesAPI from '../services/moviesAPI'
+import * as moviesAPI from "../services/moviesAPI"
+    
 
 import CardMovie from "components/CardMovie/CardMovie";
 import Cast from "components/Cast";

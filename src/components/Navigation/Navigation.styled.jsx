@@ -2,6 +2,9 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const NavLinkStyled = styled(NavLink)`
+  /* &.active{
+    color: red;
+  } */
   display: inline-block;
   text-decoration: none;
   padding: 12px;
@@ -9,6 +12,9 @@ const NavLinkStyled = styled(NavLink)`
   color: #2a363b;
   font-size: 24px;
  
+  /* :active{
+    color: red;
+  } */
 `
 // .activeLink {
 //   composes: link;
