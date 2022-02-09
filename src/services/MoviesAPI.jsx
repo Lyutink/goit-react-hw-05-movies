@@ -60,4 +60,16 @@ async function getReviews(movieId) {
         //failure
     }
 }
-export { getPopularFilms, getMovieDetails, getMovieCast, getReviews };
+
+async function getSerchMovies(searchMovies) {
+    try {
+        const response = await axios.get(`search/movie?api_key=${API_Key}&language=en-US&query=${searchMovies}`);
+        return response.data;
+    }
+    catch (error) {
+        Notiflix.Notify.init("Critical error", error);
+        //failure
+    }
+}
+
+export { getPopularFilms, getMovieDetails, getMovieCast, getReviews, getSerchMovies };

@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-//import getPopularFilms from '../services/MoviesAPI'
-//import * as moviesAPI from "../services/moviesAPI";
-import { getPopularFilms } from "../services/moviesAPI";
+
+import Loader from "components/Loader/Loader";
+
+import { getPopularFilms } from "services/moviesAPI";
 
 export default function HomePage() {
    const location = useLocation();
    const [trendingMovies, setTrendingMovies] = useState([]);
+   const [loading, setLoading] = useState(false);
 
    useEffect(() => {
       if (trendingMovies.length !== 0) {
@@ -15,20 +17,29 @@ export default function HomePage() {
          console.log("TrendingMovies", trendingMovies);
          return;
       }
-         //moviesAPI.getPopularFilms().then(results => {
-            getPopularFilms().then(results => {
-            console.log("results", results);
-            setTrendingMovies([...results]);
-            console.log("TrendingMovies", trendingMovies);
 
-         })
+      async function fetchMovies() {
+         setLoading(true);
+         try {
+            const movies = await getPopularFilms();
+            //.then(results => {
+               //console.log("results", results);
+               setTrendingMovies([...movies])
+           
+         } catch (error) {
+            console.log(error);
+         } finally {
+            setLoading(false);
+         }
+      }
+      fetchMovies();
    }, [trendingMovies]);
 
-   //const nameMovie = results.original_title ?? results.original_name;
-   return (
   
+   return (
       <>
          <h1>Trending today</h1>
+         {loading && <Loader/>}
          <ul>
             {trendingMovies.map(({ id, title, name }) => (
                <li key={id} text={title ?? name}>

@@ -1,20 +1,33 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { getMovieCast } from "../../services/moviesAPI";
+import Loader from "components/Loader/Loader";
+
+import { getMovieCast } from "services/moviesAPI";
 
 export default function Cast() {
     const { movieId } = useParams();
     const [actors, setActors] = useState([]);
+    const [loading, setLoading] = useState(false);
     
     useEffect(() => {
-        getMovieCast(movieId).then(results => {
-            setActors([...results.cast] );
-        })
+        async function fatchCast() {
+            setLoading(true);
+            try {
+                const results = await getMovieCast(movieId);
+                setActors([...results.cast] );
+            } catch (error) {
+                console.log(error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fatchCast();
         }, [movieId]);
     
 return (
     <>
+        {loading && <Loader/>}
         {actors && (
             <ul>
                 {actors.map((actor) => 
