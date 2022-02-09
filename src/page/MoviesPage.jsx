@@ -6,6 +6,7 @@ import Notiflix from "notiflix";
 import Loader from "components/Loader/Loader";
 
 import { getSerchMovies } from "services/moviesAPI";
+import MoviesList from "components/MoviesList/MoviesList";
 //import { Link, useRouteMatch } from "react-router-dom";
 // useRouteMatch лекция Занятие 9 21,12,2020 мин45
 export default function MoviesPage() {
@@ -14,19 +15,28 @@ export default function MoviesPage() {
    const [loading, setLoading] = useState(false);
    const [searchMovies, setSearchMovies] = useState('');
    const [resultsMovies, setResultMovies] = useState([]);
+   const currentQuery = '';
+  // const currentQuery = new URLSearchParams(location.search).get('query')
+  // console.log("currentQuery", currentQuery);
+   
+
  
-   const currentQuery = new URLSearchParams(location.search).get('query')
-   console.log("currentQuery", currentQuery);
-   setSearchMovies(currentQuery ?? '');
 
    useEffect(() => {
-      if (!searchMovies) {
-         console.log('1')
+      if (location.search !== '') {
+         console.log(1)
          return;
       }
-      // if (location.state.from.searchMovies !== "") {
-      //    setSearchMovies(location.state.from.searchMovies);
-      // }
+      console.log(2)
+      if (searchMovies) {
+         history.push({ ...location, search: `query=${searchMovies}` });
+      }
+   }, [history, location, searchMovies])
+   
+   useEffect(() => {
+      if (!searchMovies) {
+         return;
+      }
 
       async function fetchSerchMovies() {
          setLoading(true);
@@ -37,9 +47,8 @@ export default function MoviesPage() {
                return;
             }
             setResultMovies(movies.results);
-            //history.push(location.state = { from: { location, query: `${searchMovies}` } });
             history.push({ ...location, search: `query=${searchMovies}` });
-            console.log(2)
+            
          } catch (error) {
             console.log(error);
          } finally {
@@ -47,7 +56,8 @@ export default function MoviesPage() {
          }
       }
       fetchSerchMovies();
-   }, [])
+   },[searchMovies])
+   
    
    function handleSubmit(event) {
       event.preventDefault();
@@ -57,6 +67,7 @@ export default function MoviesPage() {
       return;
     }
       setSearchMovies(queryString.trim().toLowerCase());
+      
    }
 
    return (
@@ -67,27 +78,24 @@ export default function MoviesPage() {
          </form>
 
          {loading && <Loader/>}
-         {resultsMovies && 
-            <>
-                     <ul>
-            {resultsMovies.map(({ id, title, name }) => (
-               <li key={id} text={title ?? name}>
-                  <Link to={{
-                     pathname: `/movies/${id}`,
-                     state: {
-                        from: {
-                           location
-                          
-                     }
-                     },
-                  }}>
-                     {title ?? name}
-                  </Link>
-               </li>
-               )
-            )}
-         </ul>
-            </>
+         {resultsMovies && <MoviesList movies={resultsMovies} location={ location}/>
+         //    <>
+         //             <ul>
+         //    {resultsMovies.map(({ id, title, name }) => (
+         //       <li key={id} text={title ?? name}>
+         //          <Link to={{
+         //             pathname: `/movies/${id}`,
+         //             state: {
+         //                from: location
+         //             },
+         //          }}>
+         //             {title ?? name}
+         //          </Link>
+         //       </li>
+         //       )
+         //    )}
+         // </ul>
+         //    </>
          }
       </>)
 }

@@ -36,8 +36,9 @@ export default function MoviesDetailsPage() {
     }, [movieId]);
 
     const clickBtnGoBack = () => {
+        console.log('location', location)
         history.push(location?.state?.from?.location ?? '/');
-console.log('MDP location', location.state.from.location)
+console.log('MDP location', history)
 
 }
 
@@ -51,7 +52,7 @@ console.log('MDP location', location.state.from.location)
                     <ul>
                         <li><NavLink to={{
                             pathname: `${url}/cast`,
-                            state: { from: location.state.from },
+                            state: { from:  location}, //location.state.from
                         }}>
                             Cast</NavLink></li>
                         <li><NavLink to={{

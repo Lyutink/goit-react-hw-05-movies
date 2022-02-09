@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 import Loader from "components/Loader/Loader";
 
 import { getPopularFilms } from "services/moviesAPI";
-
+import MoviesList from "components/MoviesList/MoviesList";
 export default function HomePage() {
    const location = useLocation();
+   console.log("HomePage location", location)
    const [trendingMovies, setTrendingMovies] = useState([]);
    const [loading, setLoading] = useState(false);
 
@@ -39,8 +40,9 @@ export default function HomePage() {
    return (
       <>
          <h1>Trending today</h1>
-         {loading && <Loader/>}
-         <ul>
+         {loading && <Loader />}
+         <MoviesList movies={trendingMovies} location={location}/>
+         {/* <ul>
             {trendingMovies.map(({ id, title, name }) => (
                <li key={id} text={title ?? name}>
                   <Link to={{
@@ -52,7 +54,7 @@ export default function HomePage() {
                </li>
                )
             )}
-         </ul>
+         </ul> */}
       </>
    )
 }
