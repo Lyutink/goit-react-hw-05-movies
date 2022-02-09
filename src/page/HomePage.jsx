@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 import Loader from "components/Loader/Loader";
 
@@ -23,8 +23,6 @@ export default function HomePage() {
          setLoading(true);
          try {
             const movies = await getPopularFilms();
-            //.then(results => {
-               //console.log("results", results);
                setTrendingMovies([...movies])
            
          } catch (error) {
