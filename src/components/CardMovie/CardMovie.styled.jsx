@@ -63,21 +63,19 @@ export const AdditionalInfoLink = styled(NavLink)`
     text-decoration: none;
     &:hover,
     &:focus {
-        text-shadow: 0px 3px 1px rgba(0, 0, 0, 0.9), 0px 1px 2px rgba(0, 0, 0, 0.8),
-        0px 2px 2px rgba(0, 0, 0, 0.12);
+        color: #2196f3;
+        text-shadow: 0 0 10px rgb(63, 131, 209);
     }
 `;
 
 export const CastList = styled.ul`
-    //display: flex;
-    /* flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
     margin-left: -20px;
-    margin-top: -20px; */
+    margin-top: -20px;
 `;
 
 export const CastListItem = styled.li`
-    /* flex-basis: calc((100% - 100px) / 5); */
-   
-    margin-left: 20px;
+    margin-left: 100px;
     margin-top: 20px;
 `;

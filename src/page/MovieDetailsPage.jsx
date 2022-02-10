@@ -20,6 +20,7 @@ import {
 
 export default function MoviesDetailsPage() {
     const location = useLocation();
+    console.log("MoviesDetailsPage Location", location);
     const history = useHistory();
     const { url} = useRouteMatch();
     const { movieId } = useParams();
@@ -42,9 +43,9 @@ export default function MoviesDetailsPage() {
     }, [movieId]);
 
     const clickBtnGoBack = () => {
-        console.log('location', location)
-        history.push(location?.state?.from?.location ?? '/');
-console.log('MDP location', history)
+        console.log('location', location);
+        history.push(location?.state?.from ?? '/');
+console.log('MDP history', history)
 
 }
 
@@ -61,12 +62,14 @@ console.log('MDP location', history)
                         <AdditionalInfoList>
                             <li><AdditionalInfoLink to={{
                                 pathname: `${url}/cast`,
-                                state: { from:  location}, //location.state.from
+                                state: {from: location},
+                                //state: { from:  location}, //location.state.from
                             }}>
                                 Cast</AdditionalInfoLink></li>
                             <li><AdditionalInfoLink to={{
                                 pathname: `${url}/reviews`,
-                             state: { from: location.state.from },
+                                state: {from: location},
+                             //state: { from: location },
                             }}>Reviews</AdditionalInfoLink></li>
                         </AdditionalInfoList>
                     </AdditionalInfoContainer>    

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import { useLocation, useHistory} from "react-router-dom";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import Notiflix from "notiflix";
 
 import Loader from "components/Loader/Loader";
+import { SearchForm } from "components/Form/Form";
 
 import { getSerchMovies } from "services/moviesAPI";
 import MoviesList from "components/MoviesList/MoviesList";
@@ -15,7 +16,7 @@ export default function MoviesPage() {
    const [loading, setLoading] = useState(false);
    const [searchMovies, setSearchMovies] = useState('');
    const [resultsMovies, setResultMovies] = useState([]);
-   const currentQuery = '';
+   //const currentQuery = '';
   // const currentQuery = new URLSearchParams(location.search).get('query')
   // console.log("currentQuery", currentQuery);
    
@@ -27,8 +28,9 @@ export default function MoviesPage() {
          console.log(1)
          return;
       }
-      console.log(2)
+     
       if (searchMovies) {
+          console.log(2)
          history.push({ ...location, search: `query=${searchMovies}` });
       }
    }, [history, location, searchMovies])
@@ -47,7 +49,7 @@ export default function MoviesPage() {
                return;
             }
             setResultMovies(movies.results);
-            history.push({ ...location, search: `query=${searchMovies}` });
+            //history.push({ ...location, search: `query=${searchMovies}` });
             
          } catch (error) {
             console.log(error);
@@ -72,30 +74,12 @@ export default function MoviesPage() {
 
    return (
       <>
-         <form onSubmit={handleSubmit} autoComplete="off">
+         {/* <form onSubmit={handleSubmit} autoComplete="off">
             <input type="text" name="query" />
             <button type="submit">Search</button>
-         </form>
-
+         </form> */}
+         <SearchForm handleSubmit={handleSubmit} autoComplete="off"/>
          {loading && <Loader/>}
-         {resultsMovies && <MoviesList movies={resultsMovies} location={ location}/>
-         //    <>
-         //             <ul>
-         //    {resultsMovies.map(({ id, title, name }) => (
-         //       <li key={id} text={title ?? name}>
-         //          <Link to={{
-         //             pathname: `/movies/${id}`,
-         //             state: {
-         //                from: location
-         //             },
-         //          }}>
-         //             {title ?? name}
-         //          </Link>
-         //       </li>
-         //       )
-         //    )}
-         // </ul>
-         //    </>
-         }
+         {resultsMovies && <MoviesList movies={resultsMovies} />}
       </>)
 }

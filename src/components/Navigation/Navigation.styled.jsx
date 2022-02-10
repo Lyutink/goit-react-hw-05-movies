@@ -8,13 +8,14 @@ const NavLinkStyled = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
   padding: 12px;
-  font-weight: 500;
+  font-size: 50px;
+  font-weight: 700;
   color: #2a363b;
   font-size: 24px;
  
-  /* :active{
-    color: red;
-  } */
+  &:hover,
+    &:focus {
+        text-shadow: 0 0 10px rgb(63, 131, 209);}
 `
 // .activeLink {
 //   composes: link;

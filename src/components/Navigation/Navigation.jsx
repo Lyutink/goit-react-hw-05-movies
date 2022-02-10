@@ -6,12 +6,11 @@ const Navigation = () => (
         <NavLinkStyled
             exact
             to="/"
-            activeStyle={{composes: "link", color: "#2196f3"}}
+            activeStyle={{color: "#2196f3", textShadow: "0 0 10px rgb(63, 131, 209)"}}
         >Home</NavLinkStyled>
         <NavLinkStyled
-            exact
             to="/movies"
-            activeStyle={{composes: "link", color: "#2196f3"}}
+            activeStyle={{color: "#2196f3", textShadow: "0 0 10px rgb(63, 131, 209)"}}
         >Movies</NavLinkStyled>
     </nav>
 );
