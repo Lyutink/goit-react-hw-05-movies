@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useLocation, useHistory } from "react-router-dom";
 import {Route } from "react-router-dom";
-import { NavLink, useRouteMatch } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 
 import Loader from "components/Loader/Loader";
 
@@ -9,8 +9,14 @@ import { getMovieDetails } from "services/moviesAPI";
     
 import Button from "components/Button/Button";
 import CardMovie from "components/CardMovie/CardMovie";
-import Cast from "components/Cast/Cast";
-import Reviews from "components/Reviews/Reviews";
+import { Cast } from "./Cast";
+import Reviews from "./Reviews";
+import {
+    AdditionalInfoLink, AdditionalInfoList,
+     AdditionalTitle, AdditionalInfoContainer
+} from "components/CardMovie/CardMovie.styled";
+    
+
 
 export default function MoviesDetailsPage() {
     const location = useLocation();
@@ -49,26 +55,30 @@ console.log('MDP location', history)
             {movieDetails && (
                 <>
                     <CardMovie movieDetails={movieDetails} />
-                    <ul>
-                        <li><NavLink to={{
-                            pathname: `${url}/cast`,
-                            state: { from:  location}, //location.state.from
-                        }}>
-                            Cast</NavLink></li>
-                        <li><NavLink to={{
-                            pathname: `${url}/reviews`,
-                            state: { from: location.state.from },
-                        }}>Reviews</NavLink></li>
-                    </ul>
+
+                    <AdditionalInfoContainer>
+                        <AdditionalTitle>Additional information</AdditionalTitle>
+                        <AdditionalInfoList>
+                            <li><AdditionalInfoLink to={{
+                                pathname: `${url}/cast`,
+                                state: { from:  location}, //location.state.from
+                            }}>
+                                Cast</AdditionalInfoLink></li>
+                            <li><AdditionalInfoLink to={{
+                                pathname: `${url}/reviews`,
+                             state: { from: location.state.from },
+                            }}>Reviews</AdditionalInfoLink></li>
+                        </AdditionalInfoList>
+                    </AdditionalInfoContainer>    
                 </>
             )}
 
             <Route path="/movies/:movieId/cast">
-                <Cast></Cast>
+                <Cast/>
             </Route>
 
             <Route path="/movies/:movieId/reviews">
-                <Reviews></Reviews>
+                <Reviews/>
             </Route>
         </>
     )

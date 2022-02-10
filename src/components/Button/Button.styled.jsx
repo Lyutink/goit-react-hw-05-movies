@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const ButtonGoBack = styled.button`
+  margin-bottom: 24px;
   padding: 4px 8px;
   border-radius: 2px;
   /* background-color: #3f51b5; */

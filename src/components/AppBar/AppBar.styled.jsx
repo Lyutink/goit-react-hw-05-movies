@@ -6,6 +6,8 @@ const HeaderAppBar = styled.header`
   align-items: center;
   min-height: 80px;
   margin-bottom: 16px;
+  font-size: 50px;
+  font-weight: 700px;
   border-bottom: 1px solid #2a363b;
 `
 export { HeaderAppBar };

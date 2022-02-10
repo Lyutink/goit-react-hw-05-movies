@@ -12,10 +12,9 @@ Notiflix.Notify.init({
 });
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
-
 const API_Key = "e5081468dae293b7907b87f3cbb5b6c8";
 
-async function getPopularFilms() {
+export async function getPopularFilms() {
     try {
         const response = await axios.get(`trending/all/day?api_key=${API_Key}`);
         return response.data.results;
@@ -26,7 +25,7 @@ async function getPopularFilms() {
     }
 }
 
-async function getMovieDetails(movieId) {
+export async function getMovieDetails(movieId) {
     try {
         const response = await axios.get(`movie/${movieId}?api_key=${API_Key}&language=en-US`);
         return response.data;
@@ -38,7 +37,7 @@ async function getMovieDetails(movieId) {
 }
 
 
-async function getMovieCast(movieId) {
+export async function getMovieCast(movieId) {
     try {
         const response = await axios.get(`movie/${movieId}/credits?api_key=${API_Key}&language=en-US`);
         return response.data;
@@ -49,8 +48,7 @@ async function getMovieCast(movieId) {
     }
 }
 
-//https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
-async function getReviews(movieId) {
+export async function getReviews(movieId) {
     try {
         const response = await axios.get(`movie/${movieId}/reviews?api_key=${API_Key}&language=en-US`);
         return response.data;
@@ -61,7 +59,7 @@ async function getReviews(movieId) {
     }
 }
 
-async function getSerchMovies(searchMovies) {
+export async function getSerchMovies(searchMovies) {
     try {
         const response = await axios.get(`search/movie?api_key=${API_Key}&language=en-US&query=${searchMovies}`);
         return response.data;
@@ -71,5 +69,3 @@ async function getSerchMovies(searchMovies) {
         //failure
     }
 }
-
-export { getPopularFilms, getMovieDetails, getMovieCast, getReviews, getSerchMovies };
