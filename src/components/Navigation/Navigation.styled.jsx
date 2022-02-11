@@ -8,10 +8,10 @@ const NavLinkStyled = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
   padding: 12px;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 700;
   color: #2a363b;
-  font-size: 24px;
+  
  
   &:hover,
     &:focus {

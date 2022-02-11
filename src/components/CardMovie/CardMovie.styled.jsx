@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-export const MovieCard = styled.div`
+export const CardMovieContainer = styled.div`
     display: flex;
     width: 1000px;
     margin-bottom: 24px;
@@ -78,4 +78,15 @@ export const CastList = styled.ul`
 export const CastListItem = styled.li`
     margin-left: 100px;
     margin-top: 20px;
+`;
+
+export const ReviewsItemTitle = styled.h4`
+    font-size: 24px;
+    font-weight: 400px;
+`;
+
+export const ReviewsText = styled.p`
+    font-size: 30px;
+    font-weight: 400px;
+    max-width: 60%;
 `;

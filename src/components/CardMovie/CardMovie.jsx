@@ -1,7 +1,7 @@
 import { useLocation} from "react-router-dom";
 import PropTypes from "prop-types";
 import {
-    MovieCard, MovieInfoContainer,  MovieInfoGenres,
+    CardMovieContainer, MovieInfoContainer,  MovieInfoGenres,
     MovieInfoTitle, MovieInfoTitle2, MovieInfoText, MovieImg
 } from "./CardMovie.styled";
 
@@ -14,7 +14,8 @@ export default function CardMovie({ movieDetails }) {
     const location = useLocation();
 
     return (
-        <MovieCard>
+        <>
+        <CardMovieContainer>
             <MovieImg src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`} alt={movieDetails.original_title} width="50px" langht='50px' />
             <MovieInfoContainer>
                 <MovieInfoTitle>{movieDetails.original_title} ({movieDetails.release_date})</MovieInfoTitle>
@@ -26,26 +27,25 @@ export default function CardMovie({ movieDetails }) {
                     {movieDetails.genres.map(genre => (
                         <li key={genre.id}>{genre.name}</li>))}
                 </MovieInfoGenres>
-            </MovieInfoContainer> 
+                </MovieInfoContainer> 
+        </CardMovieContainer>
             {/* //////////////////////////////////////// */}
-            <AdditionalInfoContainer>
-                <AdditionalTitle>Additional information</AdditionalTitle>
-                <AdditionalInfoList>
-                    <li><AdditionalInfoLink to={{
-                        pathname: `/movies/${movieDetails.id}/cast`,
-                        state: { from: location.state.from}
+        <AdditionalInfoContainer>
+            <AdditionalTitle>Additional information</AdditionalTitle>
+            <AdditionalInfoList>
+                <li><AdditionalInfoLink to={{
+                    pathname: `/movies/${movieDetails.id}/cast`,
+                    state: { from: location.state.from}
+                    }} >   
+                    Cast</AdditionalInfoLink></li>
+                <li><AdditionalInfoLink to={{
+                    pathname: `/movies/${movieDetails.id}/reviews`,
+                    state: { from: location.state.from }
                     }} >
-                        
-                        Cast</AdditionalInfoLink></li>
-                    <li><AdditionalInfoLink to={{
-                        pathname: `/movies/${movieDetails.id}/reviews`,
-                        state: { from: location.state.from }
-                    }} >
-                        Reviews</AdditionalInfoLink></li>
-                        </AdditionalInfoList>
-            </AdditionalInfoContainer> 
-            
-        </MovieCard>
+                    Reviews</AdditionalInfoLink></li>
+            </AdditionalInfoList>
+        </AdditionalInfoContainer> 
+    </>
     )    
 }
 

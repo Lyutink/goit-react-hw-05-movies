@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Form = styled.form`
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 `;
 
@@ -40,6 +40,8 @@ export const SerchFormInput = styled.input`
         font: inherit;
         font-size: 18px;
     }
+
+    &:hover,
     &:focus {
         box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
         0px 2px 2px rgba(0, 0, 0, 0.12);

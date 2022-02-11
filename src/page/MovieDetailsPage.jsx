@@ -5,7 +5,7 @@ import {Route } from "react-router-dom";
 
 import Loader from "components/Loader/Loader";
 
-import { getMovieDetails } from "../services/moviesAPI";
+import { getMovieDetails } from "../services/moviesApi";
     
 import Button from "components/Button/Button";
 import CardMovie from "components/CardMovie/CardMovie";
@@ -51,10 +51,12 @@ export default function MoviesDetailsPage() {
 
     return (
         <> 
-            <Button/>
             {loading && <Loader/>}
+            
+
             {movieDetails && (
-                <>
+                <> 
+                    <Button/>
                     <CardMovie movieDetails={movieDetails} />
 
                     {/* <AdditionalInfoContainer>

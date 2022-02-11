@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 
 import Loader from "components/Loader/Loader";
 
-import { getReviews } from "../services/moviesAPI";
-
+import { getReviews } from "../services/moviesApi";
+import { ReviewsItemTitle, ReviewsText} from "components/CardMovie/CardMovie.styled";
 export default function Reviews() {
     const { movieId } = useParams();
     const [reviews, setReviews] = useState([]);
@@ -33,8 +33,8 @@ export default function Reviews() {
                 <ul>
                 {reviews.map((review) => 
                     <li key={review.id}>
-                        <p>{review.author}</p>
-                        <p>{review.content}</p>
+                        <ReviewsItemTitle>{review.author}</ReviewsItemTitle>
+                        <ReviewsText>{review.content}</ReviewsText>
                 </li>
                 )}
                 </ul>

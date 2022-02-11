@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import Loader from "components/Loader/Loader";
 
-import { getMovieCast } from "../services/moviesAPI";
+import { getMovieCast } from "../services/moviesApi";
 
 import { CastList, CastListItem } from "components/CardMovie/CardMovie.styled";
 export function Cast() {
