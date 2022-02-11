@@ -5,7 +5,7 @@ import {Route } from "react-router-dom";
 
 import Loader from "components/Loader/Loader";
 
-import { getMovieDetails } from "services/moviesAPI";
+import { getMovieDetails } from "../services/moviesAPI";
     
 import Button from "components/Button/Button";
 import CardMovie from "components/CardMovie/CardMovie";

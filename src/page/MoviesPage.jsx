@@ -5,7 +5,7 @@ import Notiflix from "notiflix";
 import Loader from "components/Loader/Loader";
 import { SearchForm } from "components/Form/Form";
 
-import { getSerchMovies } from "services/moviesAPI";
+import { getSerchMovies } from "../services/moviesAPI";
 import MoviesList from "components/MoviesList/MoviesList";
 
 

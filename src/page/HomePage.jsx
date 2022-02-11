@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 
 import Loader from "components/Loader/Loader";
 
-import { getPopularFilms } from "services/moviesAPI";
+import { getPopularFilms } from "../services/moviesAPI";
 import MoviesList from "components/MoviesList/MoviesList";
 export default function HomePage() {
    const location = useLocation();
