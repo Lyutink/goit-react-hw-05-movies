@@ -1,5 +1,6 @@
-import { ListLi, ListLink } from "./MoviesList.styled" 
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min"
+import { ListLi, ListLink } from "./MoviesList.styled";
+import { useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
   
 
 export default function MoviesList({ movies }) {
@@ -11,14 +12,10 @@ export default function MoviesList({ movies }) {
                <ListLi key={id} text={title ?? name}>
                   <ListLink to={{
                      pathname: `/movies/${id}`,
-                     state: {
-                        from: {
-                           location,
-                           
-                        }
-                     },
-                  }}>
-                     {title ?? name}
+                     state: { from: location}
+                  }}
+                  >
+                    {title ?? name} 
                   </ListLink>
                </ListLi>
                )
@@ -26,4 +23,14 @@ export default function MoviesList({ movies }) {
          </ul>
         </>
         )
+}
+
+MoviesList.propTypes = {
+   movies: PropTypes.arrayOf(
+      PropTypes.shape({
+         id: PropTypes.number.isRequired,
+         title: PropTypes.string,
+         name: PropTypes.string,
+      })
+   )
 }

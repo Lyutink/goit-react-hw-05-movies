@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useParams, useLocation, useHistory } from "react-router-dom";
+import { useParams, useLocation} from "react-router-dom";
 import {Route } from "react-router-dom";
-import { useRouteMatch } from "react-router-dom";
+//import { useRouteMatch } from "react-router-dom";
 
 import Loader from "components/Loader/Loader";
 
@@ -11,18 +11,18 @@ import Button from "components/Button/Button";
 import CardMovie from "components/CardMovie/CardMovie";
 import { Cast } from "./Cast";
 import Reviews from "./Reviews";
-import {
-    AdditionalInfoLink, AdditionalInfoList,
-     AdditionalTitle, AdditionalInfoContainer
-} from "components/CardMovie/CardMovie.styled";
+// import {
+//     AdditionalInfoLink, AdditionalInfoList,
+//      AdditionalTitle, AdditionalInfoContainer
+// } from "components/CardMovie/CardMovie.styled";
     
 
 
 export default function MoviesDetailsPage() {
     const location = useLocation();
     console.log("MoviesDetailsPage Location", location);
-    const history = useHistory();
-    const { url} = useRouteMatch();
+    //const history = useHistory();
+    //const { url} = useRouteMatch();
     const { movieId } = useParams();
     const [movieDetails, setMovieDetails] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -42,22 +42,22 @@ export default function MoviesDetailsPage() {
         fetchMovieDetails();
     }, [movieId]);
 
-    const clickBtnGoBack = () => {
-        console.log('location', location);
-        history.push(location?.state?.from ?? '/');
-console.log('MDP history', history)
+//     const clickBtnGoBack = () => {
+//         console.log('location', location);
+//         history.push(location?.state?.from ?? '/');
+// console.log('MDP history', history)
 
-}
+//}
 
     return (
         <> 
-            <Button type="button" onClick={clickBtnGoBack}/>
+            <Button/>
             {loading && <Loader/>}
             {movieDetails && (
                 <>
                     <CardMovie movieDetails={movieDetails} />
 
-                    <AdditionalInfoContainer>
+                    {/* <AdditionalInfoContainer>
                         <AdditionalTitle>Additional information</AdditionalTitle>
                         <AdditionalInfoList>
                             <li><AdditionalInfoLink to={{
@@ -72,7 +72,7 @@ console.log('MDP history', history)
                              //state: { from: location },
                             }}>Reviews</AdditionalInfoLink></li>
                         </AdditionalInfoList>
-                    </AdditionalInfoContainer>    
+                    </AdditionalInfoContainer>     */}
                 </>
             )}
 

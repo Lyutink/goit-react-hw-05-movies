@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useLocation, useHistory} from "react-router-dom";
-//import { Link } from "react-router-dom";
 import Notiflix from "notiflix";
 
 import Loader from "components/Loader/Loader";
@@ -8,49 +7,44 @@ import { SearchForm } from "components/Form/Form";
 
 import { getSerchMovies } from "services/moviesAPI";
 import MoviesList from "components/MoviesList/MoviesList";
-//import { Link, useRouteMatch } from "react-router-dom";
-// useRouteMatch лекция Занятие 9 21,12,2020 мин45
+
+
 export default function MoviesPage() {
    const location = useLocation();
    const history = useHistory();
+
    const [loading, setLoading] = useState(false);
    const [searchMovies, setSearchMovies] = useState('');
    const [resultsMovies, setResultMovies] = useState([]);
-   //const currentQuery = '';
-  // const currentQuery = new URLSearchParams(location.search).get('query')
-  // console.log("currentQuery", currentQuery);
-   
 
- 
+   const currentQuery =  (new URLSearchParams(location.search).get('query') ?? '');
+
 
    useEffect(() => {
       if (location.search !== '') {
          console.log(1)
          return;
       }
-     
       if (searchMovies) {
-          console.log(2)
          history.push({ ...location, search: `query=${searchMovies}` });
+         console.log('2 location', location);
       }
    }, [history, location, searchMovies])
    
    useEffect(() => {
-      if (!searchMovies) {
+      if (!currentQuery) {
          return;
       }
 
       async function fetchSerchMovies() {
          setLoading(true);
          try {
-            const movies = await getSerchMovies(searchMovies);
+            const movies = await getSerchMovies(currentQuery);
             if (movies.results.length === 0) {
                Notiflix.Notify.info('Sorry, there is no movie for this request. please enter a new request');
                return;
             }
-            setResultMovies(movies.results);
-            //history.push({ ...location, search: `query=${searchMovies}` });
-            
+            setResultMovies(movies.results); 
          } catch (error) {
             console.log(error);
          } finally {
@@ -58,7 +52,7 @@ export default function MoviesPage() {
          }
       }
       fetchSerchMovies();
-   },[searchMovies])
+   },[currentQuery])
    
    
    function handleSubmit(event) {
@@ -69,7 +63,8 @@ export default function MoviesPage() {
       return;
     }
       setSearchMovies(queryString.trim().toLowerCase());
-      
+      history.push({ ...location, search: `query=${searchMovies}` });
+      console.log('3 history', history);
    }
 
    return (
