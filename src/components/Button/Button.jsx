@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-//import PropTypes from "prop-types";
-import { ButtonGoBack } from "./Button.styled";
+//import { BiArrowBack } from 'react-icons/bi';
+import { ButtonGoBack, BtnIcon, BtnText } from "./Button.styled";
 
 export default function Button() {
   const location = useLocation();
@@ -9,7 +9,10 @@ export default function Button() {
 
   return (
     <NavLink to={location?.state?.from ?? '/'}>
-      <ButtonGoBack type="button" text="ooo">Go back</ButtonGoBack>
+      <ButtonGoBack type="button" text="ooo">
+        <BtnIcon />
+        <BtnText>Go back</BtnText>
+      </ButtonGoBack>
     </NavLink>  
   );
 }

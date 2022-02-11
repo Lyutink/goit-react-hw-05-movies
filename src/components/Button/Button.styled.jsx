@@ -1,26 +1,41 @@
 
 import styled from "styled-components";
 //import { NavLink } from "react-router-dom";
+import { BiArrowBack } from 'react-icons/bi';
 
-//const NavLinkBtn 
-const ButtonGoBack = styled.button`
+export const BtnIcon = styled(BiArrowBack)`
+  font-size: 40px;
+  //width: 100px;
+  height: 50px;
+  color: #000000;
+  
+`;
+
+export const BtnText = styled.span`
+  margin-left: 30px;
+  margin-right: 30px;
+  
+`;
+
+ export const ButtonGoBack = styled.button`
   margin-bottom: 24px;
   padding: 4px 8px;
   border-radius: 2px;
-  /* background-color: #3f51b5; */
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
-  display: inline-block;
+  //display: inline-block;
+  display: flex;
+  justify-content: center;
   color: #000000;
   border: 0;
   text-decoration: none;
   cursor: pointer;
   font-family: inherit;
-  font-size: 18px;
-  line-height: 24px;
-  font-style: normal;
+  font-size: 40px;
+  //line-height: 24px;
+  //font-style: normal;
   font-weight: 500;
-  min-width: 120px;
+  min-width: 300px;
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 
@@ -29,4 +44,3 @@ const ButtonGoBack = styled.button`
     background-color: #abb2e4;
   }
 `;
-export { ButtonGoBack};
