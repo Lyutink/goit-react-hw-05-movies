@@ -1,3 +1,4 @@
+import { useLocation} from "react-router-dom";
 import PropTypes from "prop-types";
 import {
     MovieCard, MovieInfoContainer,  MovieInfoGenres,
@@ -10,6 +11,8 @@ import {
 } from "./CardMovie.styled";
 
 export default function CardMovie({ movieDetails }) {
+    const location = useLocation();
+
     return (
         <MovieCard>
             <MovieImg src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`} alt={movieDetails.original_title} width="50px" langht='50px' />
@@ -28,9 +31,16 @@ export default function CardMovie({ movieDetails }) {
             <AdditionalInfoContainer>
                 <AdditionalTitle>Additional information</AdditionalTitle>
                 <AdditionalInfoList>
-                    <li><AdditionalInfoLink to={`/movies/${movieDetails.id}/cast`}>
+                    <li><AdditionalInfoLink to={{
+                        pathname: `/movies/${movieDetails.id}/cast`,
+                        state: { from: location.state.from}
+                    }} >
+                        
                         Cast</AdditionalInfoLink></li>
-                    <li><AdditionalInfoLink to={`/movies/${movieDetails.id}/reviews`}>
+                    <li><AdditionalInfoLink to={{
+                        pathname: `/movies/${movieDetails.id}/reviews`,
+                        state: { from: location.state.from }
+                    }} >
                         Reviews</AdditionalInfoLink></li>
                         </AdditionalInfoList>
             </AdditionalInfoContainer> 
