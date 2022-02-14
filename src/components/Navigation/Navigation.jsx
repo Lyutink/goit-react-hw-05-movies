@@ -1,18 +1,28 @@
 //import { NavLink } from "react-router-dom";
-import {NavLinkStyled } from "./Navigation.styled";
+import { Outlet } from "react-router-dom";
+import { GlobalStyle } from "components/GlobalStyle";
+import { Toaster } from 'react-hot-toast';
+import { NavLinkStyled, NavigationHeader, Container } from "./Navigation.styled";
 
 const Navigation = () => (
-    <nav>
-        <NavLinkStyled
-            exact
-            to="/"
-            activeStyle={{color: "#2196f3", textShadow: "0 0 10px rgb(63, 131, 209)"}}
+    <>
+    <NavigationHeader>   
+        <nav>
+        <GlobalStyle/>       
+        <NavLinkStyled to="/"
+            // activeStyle={{color: "#2196f3", textShadow: "0 0 10px rgb(63, 131, 209)"}}
         >Home</NavLinkStyled>
         <NavLinkStyled
             to="/movies"
-            activeStyle={{color: "#2196f3", textShadow: "0 0 10px rgb(63, 131, 209)"}}
+            // activeStyle={{color: "#2196f3", textShadow: "0 0 10px rgb(63, 131, 209)"}}
         >Movies</NavLinkStyled>
-    </nav>
+        </nav>
+        </NavigationHeader>    
+    <Container>   
+            <Outlet /> 
+            <Toaster/>
+    </Container>         
+    </>    
 );
 
 export default Navigation;

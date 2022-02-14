@@ -1,5 +1,5 @@
 import { ListLi, ListLink } from "./MoviesList.styled";
-import { useLocation } from "react-router-dom";
+import { useLocation} from "react-router-dom";
 import PropTypes from "prop-types";
   
 
@@ -7,20 +7,22 @@ export default function MoviesList({ movies }) {
    const location = useLocation();
     return (  
     <>
-                     <ul>
+                     <ol>
             {movies.map(({ id, title, name }) => (
                <ListLi key={id} text={title ?? name}>
-                  <ListLink to={{
+                  {/* <ListLink to={{
                      pathname: `/movies/${id}`,
                      state: { from: location}
                   }}
-                  >
+                  > */}
+                  <ListLink to={`/movies/${id}`}
+                           state={{from: location}}>
                     {title ?? name} 
                   </ListLink>
                </ListLi>
                )
             )}
-         </ul>
+         </ol>
         </>
         )
 }

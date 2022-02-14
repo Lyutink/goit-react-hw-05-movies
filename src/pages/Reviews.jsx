@@ -5,7 +5,9 @@ import Loader from "components/Loader/Loader";
 
 import { getReviews } from "../services/moviesApi";
 import { ReviewsItemTitle, ReviewsText} from "components/CardMovie/CardMovie.styled";
-export default function Reviews() {
+
+
+export function Reviews() {
     const { movieId } = useParams();
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -40,16 +42,6 @@ export default function Reviews() {
                 </ul>
             ) :
                 <p>We don`t have any reviews for this movie.</p>}
-            {/* {reviews && (
-            <ul>
-                {reviews.map((review) => 
-                    <li key={review.id}>
-                        <p>{review.author}</p>
-                        <p>{review.content}</p>
-                </li>
-                )}
-                </ul>
-            )} */}
         </>
     );
 }

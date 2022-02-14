@@ -5,6 +5,6 @@ import { LoaderContainer } from "./Loader.styled";
 export default function Loader() {
     return (
         <LoaderContainer>
-            <Oval color="#3f51b5" height={80} width={80} />
+            <Oval color="#3f51b5" height="100px" width="100px" />
         </LoaderContainer>
    )};

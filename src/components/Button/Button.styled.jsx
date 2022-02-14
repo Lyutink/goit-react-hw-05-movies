@@ -5,13 +5,13 @@ import { BiArrowBack } from 'react-icons/bi';
 
 export const BtnIcon = styled(BiArrowBack)`
   font-size: 40px;
-  //width: 100px;
   height: 50px;
   color: #000000;
-  
+ 
 `;
 
 export const BtnText = styled.span`
+
   margin-left: 30px;
   margin-right: 30px;
   

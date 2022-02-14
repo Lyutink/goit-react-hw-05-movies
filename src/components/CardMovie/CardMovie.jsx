@@ -1,4 +1,5 @@
-import { useLocation} from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import {
     CardMovieContainer, MovieInfoContainer,  MovieInfoGenres,
@@ -33,17 +34,16 @@ export default function CardMovie({ movieDetails }) {
         <AdditionalInfoContainer>
             <AdditionalTitle>Additional information</AdditionalTitle>
             <AdditionalInfoList>
-                <li><AdditionalInfoLink to={{
-                    pathname: `/movies/${movieDetails.id}/cast`,
-                    state: { from: location.state.from}
-                    }} >   
+                    <li><AdditionalInfoLink to={`/movies/${movieDetails.id}/cast`}
+                        state= {{ from: location.state.from }}
+                     >   
                     Cast</AdditionalInfoLink></li>
-                <li><AdditionalInfoLink to={{
-                    pathname: `/movies/${movieDetails.id}/reviews`,
-                    state: { from: location.state.from }
-                    }} >
+                <li><AdditionalInfoLink to={`/movies/${movieDetails.id}/reviews`}
+                        state= {{ from: location.state.from }}
+                    >
                     Reviews</AdditionalInfoLink></li>
-            </AdditionalInfoList>
+                </AdditionalInfoList>
+                <Outlet />
         </AdditionalInfoContainer> 
     </>
     )    

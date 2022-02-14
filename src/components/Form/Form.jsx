@@ -6,7 +6,7 @@ export function SearchForm({ handleSubmit }) {
     <Form onSubmit={handleSubmit} autoComplete="off">
             <SerchFormInput type="text" name="query" />
             <SerchFormBtn type="submit">Search</SerchFormBtn>
-        </Form>
+    </Form>
     )    
 }
 

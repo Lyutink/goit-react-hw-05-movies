@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import toast from 'react-hot-toast';
 import Loader from "components/Loader/Loader";
-
 import { getMovieCast } from "../services/moviesApi";
-
 import { CastList, CastListItem } from "components/CardMovie/CardMovie.styled";
+
 export function Cast() {
     const { movieId } = useParams();
     const [actors, setActors] = useState([]);
@@ -18,7 +17,7 @@ export function Cast() {
                 const results = await getMovieCast(movieId);
                 setActors([...results.cast] );
             } catch (error) {
-                console.log(error);
+                toast.error("We have no information about actors from this movie.")
             } finally {
                 setLoading(false);
             }
