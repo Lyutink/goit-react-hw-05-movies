@@ -1,4 +1,4 @@
-//import { NavLink } from "react-router-dom";
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { GlobalStyle } from "components/GlobalStyle";
 import { Toaster } from 'react-hot-toast';
@@ -8,18 +8,15 @@ const Layout = () => (
     <>
     <LayoutHeader>   
         <nav>
-        <GlobalStyle/>       
-        <NavLinkStyled to="/"
-            // activeStyle={{color: "#2196f3", textShadow: "0 0 10px rgb(63, 131, 209)"}}
-        >Home</NavLinkStyled>
-        <NavLinkStyled
-            to="/movies"
-            // activeStyle={{color: "#2196f3", textShadow: "0 0 10px rgb(63, 131, 209)"}}
-        >Movies</NavLinkStyled>
+            <GlobalStyle/>       
+            <NavLinkStyled to="/">Home</NavLinkStyled>
+            <NavLinkStyled to="/movies">Movies</NavLinkStyled>
         </nav>
-        </LayoutHeader>    
-    <Container>   
-            <Outlet /> 
+    </LayoutHeader>    
+        <Container>  
+            <Suspense fallback="">   
+                <Outlet /> 
+            </Suspense>     
             <Toaster/>
     </Container>         
     </>    

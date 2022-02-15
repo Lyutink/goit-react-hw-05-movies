@@ -7,23 +7,18 @@ export default function MoviesList({ movies }) {
    const location = useLocation();
     return (  
     <>
-                     <ol>
-            {movies.map(({ id, title, name }) => (
-               <ListLi key={id} text={title ?? name}>
-                  {/* <ListLink to={{
-                     pathname: `/movies/${id}`,
-                     state: { from: location}
-                  }}
-                  > */}
-                  <ListLink to={`/movies/${id}`}
-                           state={{from: location}}>
-                    {title ?? name} 
-                  </ListLink>
-               </ListLi>
-               )
-            )}
-         </ol>
-        </>
+      <ol>
+         {movies.map(({ id, title, name }) => (
+            <ListLi key={id} text={title ?? name}>
+               <ListLink to={`/movies/${id}`}
+                  state={{from: location}}>
+                  {title ?? name} 
+               </ListLink>
+            </ListLi>
+            )
+         )}
+      </ol>
+   </>
         )
 }
 

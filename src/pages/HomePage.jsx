@@ -30,7 +30,7 @@ const useFetchMovies = () => {
 };
 
 export function HomePage() {
-   // а тут его (кастомный чук) использую
+   // а тут его (кастомный хук useFetchMovies) использую
    const { trendingMovies, loading } = useFetchMovies();
    return (
       <>

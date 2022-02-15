@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom";
-//import { useLocation} from "react-router-dom";
 import Notiflix from "notiflix";
 
 import Loader from "components/Loader/Loader";
@@ -11,27 +10,11 @@ import MoviesList from "components/MoviesList/MoviesList";
 
 
 export function MoviesPage() {
-   //const location = useLocation();
-  // const history = useHistory();
    const [searchParams, setSearchParams] = useSearchParams();
    const [loading, setLoading] = useState(false);
-   //const [searchMovies, setSearchMovies] = useState('');
    const [resultsMovies, setResultMovies] = useState([]);
 
-   //const currentQuery =  (new URLSearchParams(location.search).get('query') ?? '');
    const currentQuery = searchParams.get('query');
-
-
-   // useEffect(() => {
-   //    if (location.search !== '') {
-   //       console.log(1)
-   //       return;
-   //    }
-   //    if (searchMovies) {
-   //      // history.push({ ...location, search: `query=${searchMovies}` });
-   //       console.log('2 location', location);
-   //    }
-   // }, [location, searchMovies])
    
    useEffect(() => {
       if (currentQuery) {
@@ -63,10 +46,6 @@ export function MoviesPage() {
       return;
       }
          setSearchParams({query: queryString.trim().toLowerCase()})
-      //setSearchMovies(queryString.trim().toLowerCase());
-      //console.log("searchMovies",searchMovies);
-      //history.push({ ...location, search: `query=${searchMovies}` });
-      //console.log('3 history');
    }
 
    return (

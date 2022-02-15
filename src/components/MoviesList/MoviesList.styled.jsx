@@ -11,6 +11,6 @@ const ListLi = styled.li`
 const ListLink = styled(NavLink)`
     text-decoration: none;
     &.active{
-    color: red;}
+    color: #1e0ff0;}
 `
 export { ListLi, ListLink };
