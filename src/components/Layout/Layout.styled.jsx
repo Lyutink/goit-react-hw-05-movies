@@ -14,7 +14,7 @@ export const NavLinkStyled = styled(NavLink)`
         text-shadow: 0 0 10px rgb(63, 131, 209);}
 `
 
-export const NavigationHeader = styled.header`
+export const LayoutHeader = styled.header`
   position: sticky;
   top: 0;
   border-bottom: 1px solid #2a363b;

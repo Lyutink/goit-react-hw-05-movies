@@ -4,7 +4,6 @@ import { ButtonGoBack, BtnIcon, BtnText } from "./Button.styled";
 
 export default function Button() {
   const location = useLocation();
-  console.log("ooooo", location);
 
   return (
     <NavLink style={{ textDecoration: "none"}} to={location?.state?.from ?? '/'}>
@@ -15,7 +14,3 @@ export default function Button() {
     </NavLink>  
   );
 }
-
-// Button.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-// };

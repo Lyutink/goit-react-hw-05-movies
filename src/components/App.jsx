@@ -2,7 +2,7 @@
 //import { Switch, Route } from "react-router-dom";
 import { Routes, Route, Navigate} from "react-router-dom";
 //import AppBar from "./components/AppBar/AppBar";
-import Navigation from "components/Navigation/Navigation";
+import Layout from "components/Layout/Layout";
 import { HomePage } from "pages";
 import { MoviesPage } from "pages";
 import { MovieDetailsPage } from 'pages';
@@ -15,7 +15,7 @@ import { Reviews } from "pages";
 export default function App  () {
   return (
     <Routes>
-      <Route path="/" element={<Navigation />}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="movies" element={<MoviesPage/>} />
         <Route path="movies/:movieId" element={<MovieDetailsPage/>}>

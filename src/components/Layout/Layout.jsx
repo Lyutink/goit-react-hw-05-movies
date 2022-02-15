@@ -2,11 +2,11 @@
 import { Outlet } from "react-router-dom";
 import { GlobalStyle } from "components/GlobalStyle";
 import { Toaster } from 'react-hot-toast';
-import { NavLinkStyled, NavigationHeader, Container } from "./Navigation.styled";
+import { NavLinkStyled, LayoutHeader, Container } from "./Layout.styled";
 
-const Navigation = () => (
+const Layout = () => (
     <>
-    <NavigationHeader>   
+    <LayoutHeader>   
         <nav>
         <GlobalStyle/>       
         <NavLinkStyled to="/"
@@ -17,7 +17,7 @@ const Navigation = () => (
             // activeStyle={{color: "#2196f3", textShadow: "0 0 10px rgb(63, 131, 209)"}}
         >Movies</NavLinkStyled>
         </nav>
-        </NavigationHeader>    
+        </LayoutHeader>    
     <Container>   
             <Outlet /> 
             <Toaster/>
@@ -25,4 +25,4 @@ const Navigation = () => (
     </>    
 );
 
-export default Navigation;
+export default Layout;
