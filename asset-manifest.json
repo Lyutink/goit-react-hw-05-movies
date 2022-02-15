@@ -1,10 +1,26 @@
 {
   "files": {
-    "main.js": "/Lyutink/goit-react-hw-05-movies/static/js/main.fc21199e.js",
+    "main.js": "/Lyutink/goit-react-hw-05-movies/static/js/main.c4af206c.js",
+    "static/js/812.c9a1710a.chunk.js": "/Lyutink/goit-react-hw-05-movies/static/js/812.c9a1710a.chunk.js",
+    "static/js/493.61c89d73.chunk.js": "/Lyutink/goit-react-hw-05-movies/static/js/493.61c89d73.chunk.js",
+    "static/js/983.eb0d62ce.chunk.js": "/Lyutink/goit-react-hw-05-movies/static/js/983.eb0d62ce.chunk.js",
+    "static/js/423.f51837d2.chunk.js": "/Lyutink/goit-react-hw-05-movies/static/js/423.f51837d2.chunk.js",
+    "static/js/945.33c3d5da.chunk.js": "/Lyutink/goit-react-hw-05-movies/static/js/945.33c3d5da.chunk.js",
+    "static/js/736.a95e7a69.chunk.js": "/Lyutink/goit-react-hw-05-movies/static/js/736.a95e7a69.chunk.js",
+    "static/js/865.a714b4a8.chunk.js": "/Lyutink/goit-react-hw-05-movies/static/js/865.a714b4a8.chunk.js",
+    "static/js/719.51ca0c8c.chunk.js": "/Lyutink/goit-react-hw-05-movies/static/js/719.51ca0c8c.chunk.js",
     "index.html": "/Lyutink/goit-react-hw-05-movies/index.html",
-    "main.fc21199e.js.map": "/Lyutink/goit-react-hw-05-movies/static/js/main.fc21199e.js.map"
+    "main.c4af206c.js.map": "/Lyutink/goit-react-hw-05-movies/static/js/main.c4af206c.js.map",
+    "812.c9a1710a.chunk.js.map": "/Lyutink/goit-react-hw-05-movies/static/js/812.c9a1710a.chunk.js.map",
+    "493.61c89d73.chunk.js.map": "/Lyutink/goit-react-hw-05-movies/static/js/493.61c89d73.chunk.js.map",
+    "983.eb0d62ce.chunk.js.map": "/Lyutink/goit-react-hw-05-movies/static/js/983.eb0d62ce.chunk.js.map",
+    "423.f51837d2.chunk.js.map": "/Lyutink/goit-react-hw-05-movies/static/js/423.f51837d2.chunk.js.map",
+    "945.33c3d5da.chunk.js.map": "/Lyutink/goit-react-hw-05-movies/static/js/945.33c3d5da.chunk.js.map",
+    "736.a95e7a69.chunk.js.map": "/Lyutink/goit-react-hw-05-movies/static/js/736.a95e7a69.chunk.js.map",
+    "865.a714b4a8.chunk.js.map": "/Lyutink/goit-react-hw-05-movies/static/js/865.a714b4a8.chunk.js.map",
+    "719.51ca0c8c.chunk.js.map": "/Lyutink/goit-react-hw-05-movies/static/js/719.51ca0c8c.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.fc21199e.js"
+    "static/js/main.c4af206c.js"
   ]
 }
