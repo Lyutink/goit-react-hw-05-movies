@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import { Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import {
@@ -35,15 +36,17 @@ export default function CardMovie({ movieDetails }) {
             <AdditionalTitle>Additional information</AdditionalTitle>
             <AdditionalInfoList>
                     <li><AdditionalInfoLink to={`/movies/${movieDetails.id}/cast`}
-                        state= {{ from: location.state.from }}
+                        state= {{ from: location?.state?.from ?? '/' }}
                      >   
                     Cast</AdditionalInfoLink></li>
                 <li><AdditionalInfoLink to={`/movies/${movieDetails.id}/reviews`}
-                        state= {{ from: location.state.from }}
+                        state= {{ from: location?.state?.from ?? '/' }}
                     >
                     Reviews</AdditionalInfoLink></li>
                 </AdditionalInfoList>
-                <Outlet />
+                <Suspense fallback="">
+                    <Outlet />
+                </Suspense>    
         </AdditionalInfoContainer> 
     </>
     )    

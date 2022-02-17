@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import Loader from "components/Loader/Loader";
 import { getMovieCast } from "../services/moviesApi";
 import { CastList, CastListItem } from "components/CardMovie/CardMovie.styled";
+import ImagePlug from "components/ImagePlug";
 
 export function Cast() {
     const { movieId } = useParams();
@@ -32,8 +33,9 @@ return (
             <CastList>
                 {actors.map((actor) => 
                     <CastListItem key={actor.cast_id}>
-                        {actor.profile_path && (
+                        {actor.profile_path ? (
                             <img src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`} alt={actor.name} />
+                            ) : ( <ImagePlug/>
                         )}
                         <h3>{actor.name}</h3>
                         <p>Character: {actor.character}</p>

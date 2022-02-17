@@ -39,7 +39,8 @@ export const MovieInfoGenres = styled.ul`
  `;
 
 export const AdditionalInfoContainer = styled.div`
-        border-top: 1px solid #2a363b;
+    border-top: 1px solid #2a363b;
+    width: 100%;  
 `;
 
 export const AdditionalTitle = styled.h4`
@@ -76,6 +77,8 @@ export const CastList = styled.ul`
 `;
 
 export const CastListItem = styled.li`
+    flex-basis: calc((100% - 100px) / 5);
+    max-width: 180px;
     margin-left: 100px;
     margin-top: 20px;
 `;
