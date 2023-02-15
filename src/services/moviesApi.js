@@ -1,4 +1,5 @@
 import axios from "axios"
+import { Toaster } from 'react-hot-toast';
 import Notiflix from "notiflix";
 Notiflix.Notify.init({
   width: "280",
@@ -21,7 +22,6 @@ export async function getPopularFilms() {
     }
     catch (error) {
         Notiflix.Notify.init("Critical error", error);
-        //failure
     }
 }
 
@@ -32,10 +32,8 @@ export async function getMovieDetails(movieId) {
     }
     catch (error) {
         Notiflix.Notify.init("Critical error", error);
-        //failure
     }
 }
-
 
 export async function getMovieCast(movieId) {
     try {
@@ -44,7 +42,6 @@ export async function getMovieCast(movieId) {
     }
     catch (error) {
         Notiflix.Notify.init("Critical error", error);
-        //failure
     }
 }
 
@@ -55,7 +52,6 @@ export async function getReviews(movieId) {
     }
     catch (error) {
         Notiflix.Notify.init("Critical error", error);
-        //failure
     }
 }
 
@@ -66,6 +62,5 @@ export async function getSerchMovies(searchMovies) {
     }
     catch (error) {
         Notiflix.Notify.init("Critical error", error);
-        //failure
     }
 }
