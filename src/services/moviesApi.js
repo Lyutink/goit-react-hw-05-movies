@@ -1,10 +1,10 @@
-import axios from "axios"
-import { Toaster } from 'react-hot-toast';
-import Notiflix from "notiflix";
+import axios from 'axios';
+//import { Toaster } from 'react-hot-toast';
+import Notiflix from 'notiflix';
 Notiflix.Notify.init({
-  width: "280",
-  position: "center-top",
-  distance: "180px",
+  width: '280',
+  position: 'center-top',
+  distance: '180px',
   opacity: 1,
   timeout: 3000,
   showOnlyTheLastOne: true,
@@ -13,54 +13,57 @@ Notiflix.Notify.init({
 });
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
-const API_Key = "e5081468dae293b7907b87f3cbb5b6c8";
+const API_Key = 'e5081468dae293b7907b87f3cbb5b6c8';
 
 export async function getPopularFilms() {
-    try {
-        const response = await axios.get(`trending/all/day?api_key=${API_Key}`);
-        return response.data.results;
-    }
-    catch (error) {
-        Notiflix.Notify.init("Critical error", error);
-    }
+  try {
+    const response = await axios.get(`trending/all/day?api_key=${API_Key}`);
+    return response.data.results;
+  } catch (error) {
+    Notiflix.Notify.init('Critical error', error);
+  }
 }
 
 export async function getMovieDetails(movieId) {
-    try {
-        const response = await axios.get(`movie/${movieId}?api_key=${API_Key}&language=en-US`);
-        return response.data;
-    }
-    catch (error) {
-        Notiflix.Notify.init("Critical error", error);
-    }
+  try {
+    const response = await axios.get(
+      `movie/${movieId}?api_key=${API_Key}&language=en-US`
+    );
+    return response.data;
+  } catch (error) {
+    Notiflix.Notify.init('Critical error', error);
+  }
 }
 
 export async function getMovieCast(movieId) {
-    try {
-        const response = await axios.get(`movie/${movieId}/credits?api_key=${API_Key}&language=en-US`);
-        return response.data;
-    }
-    catch (error) {
-        Notiflix.Notify.init("Critical error", error);
-    }
+  try {
+    const response = await axios.get(
+      `movie/${movieId}/credits?api_key=${API_Key}&language=en-US`
+    );
+    return response.data;
+  } catch (error) {
+    Notiflix.Notify.init('Critical error', error);
+  }
 }
 
 export async function getReviews(movieId) {
-    try {
-        const response = await axios.get(`movie/${movieId}/reviews?api_key=${API_Key}&language=en-US`);
-        return response.data;
-    }
-    catch (error) {
-        Notiflix.Notify.init("Critical error", error);
-    }
+  try {
+    const response = await axios.get(
+      `movie/${movieId}/reviews?api_key=${API_Key}&language=en-US`
+    );
+    return response.data;
+  } catch (error) {
+    Notiflix.Notify.init('Critical error', error);
+  }
 }
 
 export async function getSerchMovies(searchMovies) {
-    try {
-        const response = await axios.get(`search/movie?api_key=${API_Key}&language=en-US&query=${searchMovies}`);
-        return response.data;
-    }
-    catch (error) {
-        Notiflix.Notify.init("Critical error", error);
-    }
+  try {
+    const response = await axios.get(
+      `search/movie?api_key=${API_Key}&language=en-US&query=${searchMovies}`
+    );
+    return response.data;
+  } catch (error) {
+    Notiflix.Notify.init('Critical error', error);
+  }
 }
